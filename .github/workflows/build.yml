@@ -34,6 +34,11 @@ jobs:
           ln -s "$PWD/pmbootstrap/pmbootstrap.py" ~/.local/bin/pmbootstrap
           pmbootstrap --version
 
+      - name: Fix misconfigured chroots
+        run: |
+          pmbootstrap config auto_zap_misconfigured_chroots yes
+
+
       - name: Set up pmaports
         run: |
           echo -e '\n\n' | pmbootstrap init || true
