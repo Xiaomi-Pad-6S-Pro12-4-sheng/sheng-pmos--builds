@@ -59,7 +59,7 @@ jobs:
 
       - name: Show log
         run: |
-            tail -f /home/runner/.local/var/pmbootstrap/log.txt
+            cat /home/runner/.local/var/pmbootstrap/log.txt
 
       - name: Breakpoint if tests failed for xiaomi-sheng without DE
         if: failure()
