@@ -51,10 +51,13 @@ jobs:
            cp /tmp/postmarketOS-export/boot.img out/boot-xiaomi-sheng.img
            cp /tmp/postmarketOS-export/xiaomi-sheng.img out/rootfs-xiaomi-sheng-none.img
 
-      - name: Breakpoint if tests failed for xiaomi-sheng without DE
+      - name: Show pmbootstrap log if failed
         if: failure()
         run: |
-            pmbootstrap log || true
+          pmbootstrap log || true
+          
+      - name: Breakpoint if tests failed for xiaomi-sheng without DE
+        if: failure()
         uses: namespacelabs/breakpoint-action@v0
         with:
           duration: 30m
