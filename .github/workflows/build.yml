@@ -43,6 +43,12 @@ jobs:
           git fetch sheng
           git reset --hard sheng
 
+      - name: Run pmbootstrap checksum for xiaomi-sheng
+        run: |
+          pmbootstrap checksum device-xiaomi-sheng
+          pmbootstrap checksum firmware-xiaomi-sheng
+          pmbootstrap checksum linux-postmarketos-qcom-sm8550
+
       - name: Build the xiaomi-sheng without DE
         run: |
            cp xiaomi-sheng.cfg ~/.config/pmbootstrap_v3.cfg
@@ -51,11 +57,6 @@ jobs:
            cp /tmp/postmarketOS-export/boot.img out/boot-xiaomi-sheng.img
            cp /tmp/postmarketOS-export/xiaomi-sheng.img out/rootfs-xiaomi-sheng-none.img
 
-      - name: Show pmbootstrap log if failed
-        if: failure()
-        run: |
-          pmbootstrap log || true
-          
       - name: Breakpoint if tests failed for xiaomi-sheng without DE
         if: failure()
         uses: namespacelabs/breakpoint-action@v0
