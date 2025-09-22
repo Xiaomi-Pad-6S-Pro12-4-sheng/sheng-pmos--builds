@@ -34,10 +34,6 @@ jobs:
           ln -s "$PWD/pmbootstrap/pmbootstrap.py" ~/.local/bin/pmbootstrap
           pmbootstrap --version
 
-      - name: Fix misconfigured chroots
-        run: |
-          pmbootstrap config auto_zap_misconfigured_chroots yes
-
 
       - name: Set up pmaports
         run: |
@@ -47,6 +43,10 @@ jobs:
           git remote add sheng https://gitlab.postmarketos.org/alghiffaryfa19/pmaports.git 
           git fetch sheng
           git reset --hard sheng
+
+      - name: Fix misconfigured chroots
+        run: |
+          pmbootstrap config auto_zap_misconfigured_chroots yes
 
       - name: Run pmbootstrap checksum for xiaomi-sheng
         run: |
