@@ -44,15 +44,15 @@ jobs:
           git fetch sheng
           git reset --hard sheng
 
-      - name: Fix misconfigured chroots
-        run: |
-          pmbootstrap config auto_zap_misconfigured_chroots yes
-
       - name: Run pmbootstrap checksum for xiaomi-sheng
         run: |
           pmbootstrap checksum device-xiaomi-sheng
           pmbootstrap checksum firmware-xiaomi-sheng
           pmbootstrap checksum linux-postmarketos-qcom-sm8550
+
+      - name: Fix misconfigured chroots
+        run: |
+          pmbootstrap config auto_zap_misconfigured_chroots yes
 
       - name: Build the xiaomi-sheng without DE
         run: |
