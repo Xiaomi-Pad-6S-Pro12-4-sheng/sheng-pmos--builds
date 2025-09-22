@@ -50,6 +50,7 @@ jobs:
            pmbootstrap checksum device-xiaomi-sheng
            pmbootstrap checksum firmware-xiaomi-sheng
            pmbootstrap checksum linux-postmarketos-qcom-sm8550
+           sed -i 's/^sha512sums=/\nsha512sums=/' ~/.local/var/pmbootstrap/cache_git/pmaports/device/testing/linux-postmarketos-qcom-sm8550/APKBUILD
            pmbootstrap install --password 147147
            pmbootstrap export
            cp /tmp/postmarketOS-export/boot.img out/boot-xiaomi-sheng.img
