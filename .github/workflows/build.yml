@@ -47,13 +47,14 @@ jobs:
         run: |
            cp xiaomi-sheng.cfg ~/.config/pmbootstrap_v3.cfg
            pmbootstrap install --password 147147
-           tail -f /home/runner/.local/var/pmbootstrap/log.txt
            pmbootstrap export
            cp /tmp/postmarketOS-export/boot.img out/boot-xiaomi-sheng.img
            cp /tmp/postmarketOS-export/xiaomi-sheng.img out/rootfs-xiaomi-sheng-none.img
 
       - name: Breakpoint if tests failed for xiaomi-sheng without DE
         if: failure()
+        run: |
+            pmbootstrap log || true
         uses: namespacelabs/breakpoint-action@v0
         with:
           duration: 30m
