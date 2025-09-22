@@ -44,6 +44,11 @@ jobs:
           git fetch sheng
           git reset --hard sheng
 
+
+      - name: Install zstd in chroot
+        run: |
+          pmbootstrap chroot -- apk add zstd
+
       - name: Build the xiaomi-sheng without DE
         run: |
            cp xiaomi-sheng.cfg ~/.config/pmbootstrap_v3.cfg
