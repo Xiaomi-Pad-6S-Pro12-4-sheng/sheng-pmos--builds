@@ -56,10 +56,10 @@ jobs:
            cp /tmp/postmarketOS-export/boot.img out/boot-xiaomi-sheng.img
            cp /tmp/postmarketOS-export/xiaomi-sheng.img out/rootfs-xiaomi-sheng-none.img
 
-
       - name: Show log
+        if: always()
         run: |
-            cat /home/runner/.local/var/pmbootstrap/log.txt
+          cat /home/runner/.local/var/pmbootstrap/log.txt
 
       - name: Breakpoint if tests failed for xiaomi-sheng without DE
         if: failure()
