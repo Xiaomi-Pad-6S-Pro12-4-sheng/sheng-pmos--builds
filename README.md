@@ -126,14 +126,14 @@ Please follow the guide carefully
 # Switch OS
 1. From Android to Linux
 	- GUI (Requires rooting)
-		> Download app [Here](https://github.com/capntrips/BootControl/releases)
-		> Install app
-		> Open app
-		> Activate Slot B and reboot
+		- Download app [Here](https://github.com/capntrips/BootControl/releases)
+		- Install app
+		- Open app
+		- Activate Slot B and reboot
 
 	- Bootloader (no root)
-		> Boot to bootloader
-		> Slot B activation
+		- Boot to bootloader
+		- Slot B activation
 		```bash
 		fastboot set_active b
 		fastboot reboot
@@ -141,16 +141,16 @@ Please follow the guide carefully
 
 2. From Linux to Android
 	- qbootctl
-		> Open terminal
-		> Slot A activation
+		- Open terminal
+		- Slot A activation
 		```bash
 		sudo qbootctl -s a
 		sudo reboot
 		```
 
 	- Bootloader
-		> Boot to bootloader
-		> Slot A activation
+		- Boot to bootloader
+		- Slot A activation
 		```bash
 		fastboot set_active a
 		fastboot reboot
