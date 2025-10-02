@@ -122,3 +122,51 @@ Please follow the guide carefully
     ```bash
 	fastboot reboot
 	```
+
+# Switch OS
+1. From Android to Linux
+	- GUI (Requires rooting)
+		> Download app [Here](https://github.com/capntrips/BootControl/releases)
+		> Install app
+		> Open app
+		> Activate Slot B and reboot
+
+	- Bootloader (no root)
+		> Boot to bootloader
+		> Slot B activation
+		```bash
+		fastboot set_active b
+		fastboot reboot
+		```
+
+2. From Linux to Android
+	- qbootctl
+		> Open terminal
+		> Slot A activation
+		```bash
+		sudo qbootctl -S A
+		sudo reboot
+		```
+
+	- Bootloader
+		> Boot to bootloader
+		> Slot A activation
+		```bash
+		fastboot set_active a
+		fastboot reboot
+		```
+
+# Tips if you use Gnome Shell Mobile
+1. Use gnome extensions to force phone mode, you can follow the guide [Here](https://github.com/vixalien/force-phone-mode)
+
+# Screenshot
+<div align="center">
+  <img src="hyperos.jpg" alt="Xiaomi Pad 6s Pro HyperOS"/>
+  <p><em>Xiaomi Pad 6s Pro HyperOS</em></p>
+  <br>
+	<img src="gnome_shell_mobile.jpg" alt="Xiaomi Pad 6s Pro PMOS"/>
+  <p><em>Xiaomi Pad 6s Pro PostmarketOS</em></p>
+    <br>
+	<img src="neofetch.jpg" alt="Xiaomi Pad 6s Pro neofetch"/>
+  <p><em>Xiaomi Pad 6s Pro with 6.17 kernel</em></p>
+</div>
