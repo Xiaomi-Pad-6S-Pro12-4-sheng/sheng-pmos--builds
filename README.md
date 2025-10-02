@@ -131,7 +131,7 @@ Please follow the guide carefully
 		- Open app
 		- Activate Slot B and reboot
 
-	- Bootloader (no root)
+	- Bootloader (no root, requires PC)
 		- Boot to bootloader
 		- Slot B activation
 		```bash
@@ -148,7 +148,7 @@ Please follow the guide carefully
 		sudo reboot
 		```
 
-	- Bootloader
+	- Bootloader (Requires PC)
 		- Boot to bootloader
 		- Slot A activation
 		```bash
