@@ -49,4 +49,76 @@ Please follow the guide carefully
 	```
 
 # Dual Boot
-Soon
+1. Boot to TWRP
+    ```bash
+	adb reboot recovery
+	```
+
+2. Download parted file in this repo
+4. Push parted file to android storage 
+	```bash
+	adb push <path/to/parted> /sdcard
+	```
+5. Enter adb shell
+	```bash
+	adb shell
+	```
+6. Create linux partition
+	```bash
+	chmod +x /sdcard/parted
+	/sdcard/parted /dev/block/sda
+	```
+7. delete userdata partition, note the number (far left), in my case, userdata is at number 29
+	```bash
+	print
+	rm 29
+	```
+8. Create userdata and linux partition (userdata 128GB and linux 128GB)
+	```bash
+	mkpart userdata ext4 12.7GB 140.7GB
+	mkpart linux ext4 140.7GB -0MB
+	```
+
+9. Check the partition that has been created
+	```bash
+	print
+	```
+
+10. You will see 29 for userdata and 30 for linux
+11. Exit from parted
+	```bash
+	quit
+	```
+12. Exit from shell
+	```bash
+	exit
+	```
+13. Boot to bootloader
+    ```bash
+	adb reboot bootloader
+	```
+
+14. Erase dtbo
+    ```bash
+    fastboot erase dtbo_b
+	```
+
+15. Flash boot image
+    ```bash
+	fastboot flash boot_b boot-xiaomi-sheng.img
+	```
+
+16. Flash rootfs image
+    ```bash
+	fastboot flash linux rootfs-xiaomi-sheng-*.img
+	```
+
+17. Slot B activation
+    ```bash
+	fastboot set_active b
+	```
+
+18. Reboot
+    ```bash
+	fastboot reboot
+	```
