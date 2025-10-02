@@ -144,7 +144,7 @@ Please follow the guide carefully
 		> Open terminal
 		> Slot A activation
 		```bash
-		sudo qbootctl -S A
+		sudo qbootctl -s a
 		sudo reboot
 		```
 
@@ -155,6 +155,11 @@ Please follow the guide carefully
 		fastboot set_active a
 		fastboot reboot
 		```
+# 🔐 Login Credentials
+Default System Credentials
+
+Username: user
+Password: 147147 (for initial setup)
 
 # Tips if you use Gnome Shell Mobile
 1. Use gnome extensions to force phone mode, you can follow the guide [Here](https://github.com/vixalien/force-phone-mode)
